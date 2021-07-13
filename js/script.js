@@ -31,19 +31,39 @@ function bombGenerator(numBomb) {
     return listBomb;
 }
 
-// Genero un array con una lista di numeri da 1 a max
-
-function numGenerator(max) {
-    let numList = [];
-    for (let i = 0; i < max; i++) {
-        numList.push(i + 1);
-    }
-    return numList;
+function checkNumber() {
+    do {
+        num = parseInt(prompt("Inserisci un numero da 1 a 100"));
+    } while (!num || num < 1 || num > 100 || alreadyUsed.includes(num));
 }
 
+//  * Variables declaration
+const numBomb = 16;
+const bombList = bombGenerator(numBomb);
+let alreadyUsed = [];
+let num;
+let lost = false;
 
+console.table(bombList);
 
-console.table(bombGenerator(16));
-console.table(numGenerator(100));
+// Finchè non vengono indovinati tutti i numeri buoni o finchè non trovo una bomba
 
-const bombList = bombGenerator(16);
+while ((alreadyUsed.length < 100 - numBomb) && (!lost)) {
+    do {
+        num = parseInt(prompt("Inserisci un numero da 1 a 100"));
+    } while (!num || num < 1 || num > 100 || alreadyUsed.includes(num));
+    if (!bombList.includes(num)) {
+        alreadyUsed.push(num); 
+        console.log("+1")   
+    } else {
+        lost = true;
+    }
+}
+
+// * output risultato
+
+if (lost) {
+    alert("Hai perso, hai ottenuto " + alreadyUsed.length + " punti");
+} else {
+    alert("Hai Vinto");
+}

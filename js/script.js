@@ -17,13 +17,15 @@ function getRandomNumber(min, max, isMaxIncluded){
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+// Genero un array di 16 numeri da 1 a 100 tutti diversi tra loro
+
 function bombGenerator(numBomb) {
     let listBomb = [];
     for (let i = 0; i < numBomb; i++) {
         do {
-            var num = getRandomNumber(1, 100, true))
-        } while (!listBomb.includes(num));
-        listBomb.push(num;)
+            var num = getRandomNumber(1, 100, true);
+        } while (listBomb.includes(num));
+        listBomb.push(num);
         
     }
     return listBomb;

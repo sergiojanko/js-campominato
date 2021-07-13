@@ -31,4 +31,19 @@ function bombGenerator(numBomb) {
     return listBomb;
 }
 
+// Genero un array con una lista di numeri da 1 a max
+
+function numGenerator(max) {
+    let numList = [];
+    for (let i = 0; i < max; i++) {
+        numList.push(i + 1);
+    }
+    return numList;
+}
+
+
+
 console.table(bombGenerator(16));
+console.table(numGenerator(100));
+
+const bombList = bombGenerator(16);

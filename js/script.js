@@ -7,3 +7,26 @@ Ogni  volta che l'utente sceglie un numero che non è presente tra le bombe, gua
 Se il numero scelto dall'utente è presente tra i numeri bomba, la partita termina.
 Quando la partita termina, comunichiamo all'utente il suo punteggio.
 */
+
+//  * Functions declaration
+
+function getRandomNumber(min, max, isMaxIncluded){
+    if (isMaxIncluded) {
+    max++;
+    }
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+function bombGenerator(numBomb) {
+    let listBomb = [];
+    for (let i = 0; i < numBomb; i++) {
+        do {
+            var num = getRandomNumber(1, 100, true))
+        } while (!listBomb.includes(num));
+        listBomb.push(num;)
+        
+    }
+    return listBomb;
+}
+
+console.table(bombGenerator(16));
